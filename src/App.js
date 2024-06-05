@@ -1,26 +1,28 @@
 import React from 'react';
-import AppBar from '@mui/material/AppBar';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import CssBaseline from '@mui/material/CssBaseline';
+import Navbar from './Main/Navbar';
+import AppRoutes from './MainRouter/RouterLogin';
+import Footer from './Main/Footer';
 
-
-function App() {
+export default function App() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar variant="dense">
-          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" component="div">
-            DOIDZ
-          </Typography>
-        </Toolbar>
-      </AppBar>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+      <CssBaseline />
+      <Router>
+        <Navbar />
+        <Box sx={{ flexGrow: 1 }}>
+          <AppRoutes />
+        </Box>
+      </Router>
+      <Footer />
     </Box>
   );
 }
-export default App;
